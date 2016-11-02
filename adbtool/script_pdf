@@ -1,0 +1,6 @@
+#!/system/bin/sh
+cd /sdcard;
+mkdir -p /sdcard/adbtool_bak/pdf/;
+find -name '*.pdf' -exec cp {} adbtool_bak/pdf/ \;
+cd adbtool_bak/pdf/;
+zip -r adbtool_bak_pdf.zip *;

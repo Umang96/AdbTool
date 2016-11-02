@@ -1,0 +1,6 @@
+#!/system/bin/sh
+cd /sdcard;
+mkdir -p /sdcard/adbtool_bak/mp3/;
+find -name '*.mp3' -exec cp {} adbtool_bak/mp3/ \;
+cd adbtool_bak/mp3/;
+zip -r adbtool_bak_mp3.zip *;

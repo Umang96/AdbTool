@@ -1,0 +1,6 @@
+#!/system/bin/sh
+cd /sdcard;
+mkdir -p /sdcard/adbtool_bak/mp4/;
+find -name '*.mp4' -exec cp {} adbtool_bak/mp4/ \;
+cd adbtool_bak/mp4/;
+zip -r adbtool_bak_mp4.zip *;
