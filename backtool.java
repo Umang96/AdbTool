@@ -88,38 +88,15 @@ runscript();
 
 public void runscript()
 {
-int i=0;
 String stc = checkradio();
 if(stc=="failed")
 JOptionPane.showMessageDialog(null, "Please select one option first.");
-if(stc!="failed")
+else
 {
-String[] msg = new String[4];
-msg[0] = "Preparing to backup "+stc+"...";
-msg[1] = "Copying and compressing all "+stc+", please wait...";
-msg[2] = "Copying compressed "+stc+" archive to your pc...";
-msg[3] = "Finished backup of all "+stc+" enjoy !";
-for(i = 0 ; i<4 ; i++)
-{
-try{
-String[] cmd = new String[4];
-cmd[0] = "adb push script_"+stc+" /sdcard/adbtb_script";
-cmd[1] = "adb shell sh /sdcard/adbtb_script";
-cmd[2] = "adb pull /sdcard/adbtool_bak/"+stc+"/adbtool_bak_"+stc+".zip";
-cmd[3] = "adb shell rm -rf /sdcard/adbtool_bak/";
-if(i<3)
-System.out.println(msg[i]);
-Runtime run = Runtime.getRuntime();
-Process pr = run.exec(cmd[i]);
-	     pr.waitFor();
-if(i==3)
-System.out.println(msg[i]);
-}
-catch(Exception e)
-{
-System.out.println("Failed cmd");
-}
-}
+ShellHelper sh1 = new ShellHelper(0);
+sh1.executor("cd adbtool");
+sh1.executor("chmod +x script.sh");
+sh1.executor("bash script.sh "+stc);
 }
 }
 

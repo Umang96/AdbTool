@@ -1,6 +1,0 @@
-#!/system/bin/sh
-cd /sdcard;
-mkdir -p /sdcard/adbtool_bak/jpg/;
-find -name '*.jpg' -exec cp {} adbtool_bak/jpg/ \;
-cd adbtool_bak/jpg/;
-zip -r adbtool_bak_jpg.zip *;

@@ -1,6 +1,0 @@
-#!/system/bin/sh
-cd /sdcard;
-mkdir -p /sdcard/adbtool_bak/apk/;
-find -name '*.apk' -exec cp {} adbtool_bak/apk/ \;
-cd adbtool_bak/apk/;
-zip -r adbtool_bak_apk.zip *;

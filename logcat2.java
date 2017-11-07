@@ -8,9 +8,15 @@ public class logcat2 implements Runnable
 {
 Thread thread;
 long tim;
-logcat2(long x)
+String filter,tag;
+logcat2(long x,String ftr,String tg)
 {
 tim=x;
+filter=ftr;
+tag=tg;
+if(tag.length()<1)
+tag="*";
+tag+=":";
 }
 public void start () {
         thread = new Thread (this);
@@ -26,7 +32,9 @@ File file =new File(time);
 file.createNewFile();
 FileWriter fileWritter = new FileWriter(file.getName(),true);
 BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
-String cmd="adb logcat";
+String cmd="adb logcat "+tag+filter;
+if(!tag.equals("*:"))
+cmd+=" *:S";
 System.out.println(cmd);
 Runtime run = Runtime.getRuntime();
 	      pr = run.exec(cmd);
@@ -34,7 +42,7 @@ Runtime run = Runtime.getRuntime();
               new BufferedReader(new InputStreamReader(pr.getInputStream()));
  String line = "";
         while((line = reader.readLine()) != null) {
-            System.out.print(line + "\n");
+            //System.out.print(line + "\n");
 	    bufferWritter.write(line+"\n");
         }
 bufferWritter.close();
