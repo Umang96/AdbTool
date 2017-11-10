@@ -17,6 +17,7 @@ screenrec2(long x,String res,String bit)
 tim=x;
 resolution=res;
 bitrate=bit;
+sh = new ShellHelper(0);
 }
 public void start () {
         thread = new Thread (this);
@@ -32,6 +33,7 @@ sh.executor(cmd);
 }
 catch(Exception e)
 {
+e.printStackTrace();
 JOptionPane.showMessageDialog(null, "Failed, is your phone connected in adb mode ?");
 }
 }
