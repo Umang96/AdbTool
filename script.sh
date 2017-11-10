@@ -19,7 +19,7 @@ adb shell ls -R /sdcard/ |
                 if ([ "$dir" = "/" ]); then dir=""; fi
 		
 		newline="$dir/$line"
-		if [[ $newline == *$1* ]]; then
+		if [[ $newline == *.$1* ]]; then
   		echo $newline
 		adb pull "$newline" $1/
 		fi

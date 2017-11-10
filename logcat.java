@@ -49,29 +49,34 @@ public class logcat implements ActionListener
 		f1.setVisible(true);
 		f1.setSize(425,510);
 		f1.setTitle("Logcat Tool");
-		head.setFont(new Font("Times New Roman",Font.BOLD,40));
+		head.setFont(new Font("Georgia",Font.BOLD,40));
 
-		l1.setFont(new Font("Times New Roman",Font.BOLD,16));
-		l2.setFont(new Font("Times New Roman",Font.BOLD,16));
-		l3.setFont(new Font("Times New Roman",Font.BOLD,16));
-		b1.setFont(new Font("Times New Roman",Font.BOLD,16));
-		b2.setFont(new Font("Times New Roman",Font.BOLD,16));
-		b3.setFont(new Font("Times New Roman",Font.BOLD,16));
-		t1.setFont(new Font("Calibri",Font.BOLD,14));
-		t2.setFont(new Font("Calibri",Font.BOLD,14));
+		l1.setFont(new Font("Georgia",Font.BOLD,16));
+		l2.setFont(new Font("Georgia",Font.BOLD,16));
+		l3.setFont(new Font("Georgia",Font.BOLD,16));
+		b1.setFont(new Font("Georgia",Font.BOLD,13));
+		b2.setFont(new Font("Georgia",Font.BOLD,13));
+		b3.setFont(new Font("Georgia",Font.BOLD,13));
+		t1.setFont(new Font("Georgia",Font.BOLD,14));
+		t2.setFont(new Font("Georgia",Font.BOLD,14));
 		b1.addActionListener(this);
 		b2.addActionListener(this);
 		b3.addActionListener(this);
+		b1.setForeground(Color.WHITE);
+		b2.setForeground(Color.WHITE);
+		b3.setForeground(Color.WHITE);
 
 
 		// Make Radio Buttons for Logcat Filter
-		radioDesc.setFont(new Font("Times New Roman",Font.BOLD,16));
-		radio_none.setFont(new Font("Times New Roman",Font.BOLD,13));
-		radio_verbose.setFont(new Font("Times New Roman",Font.BOLD,13));
-		radio_warning.setFont(new Font("Times New Roman",Font.BOLD,13));
-		radio_info.setFont(new Font("Times New Roman",Font.BOLD,13));
-		radio_debug.setFont(new Font("Times New Roman",Font.BOLD,13));
-		radio_error.setFont(new Font("Times New Roman",Font.BOLD,13));
+		radioDesc.setFont(new Font("Georgia",Font.BOLD,16));
+		radio_none.setFont(new Font("Georgia",Font.BOLD,13));
+		radio_verbose.setFont(new Font("Georgia",Font.BOLD,13));
+		radio_warning.setFont(new Font("Georgia",Font.BOLD,13));
+		radio_info.setFont(new Font("Georgia",Font.BOLD,13));
+		radio_debug.setFont(new Font("Georgia",Font.BOLD,13));
+		radio_error.setFont(new Font("Georgia",Font.BOLD,13));
+		radio_fatal.setFont(new Font("Georgia",Font.BOLD,13));
+		radio_silent.setFont(new Font("Georgia",Font.BOLD,13));
 
 		//Add radio buttons to ButtonGroup, and set None as default
 		logcatOptions = new ButtonGroup();

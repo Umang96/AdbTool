@@ -14,9 +14,11 @@ JLabel l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,head;
 int[] freq = new int[10];
 int[] tis = new int[10];
 double[] per = new double[10];
+ShellHelper sh;
 
 cpusec()
 {
+sh = new ShellHelper(0);
 l1 = new JLabel();
 l2 = new JLabel();
 l3 = new JLabel();
@@ -36,18 +38,19 @@ f1.setVisible(true);
 f1.add(p1);
 p1.setLayout(null);
 b1.addActionListener(this);
-head.setFont(new Font("Times New Roman",Font.BOLD,16));
-l1.setFont(new Font("Times New Roman",Font.BOLD,16));
-l2.setFont(new Font("Times New Roman",Font.BOLD,16));
-l3.setFont(new Font("Times New Roman",Font.BOLD,16));
-l4.setFont(new Font("Times New Roman",Font.BOLD,16));
-l5.setFont(new Font("Times New Roman",Font.BOLD,16));
-l6.setFont(new Font("Times New Roman",Font.BOLD,16));
-l7.setFont(new Font("Times New Roman",Font.BOLD,16));
-l8.setFont(new Font("Times New Roman",Font.BOLD,16));
-l9.setFont(new Font("Times New Roman",Font.BOLD,16));
-l10.setFont(new Font("Times New Roman",Font.BOLD,16));
+head.setFont(new Font("Georgia",Font.BOLD,16));
+l1.setFont(new Font("Georgia",Font.BOLD,16));
+l2.setFont(new Font("Georgia",Font.BOLD,16));
+l3.setFont(new Font("Georgia",Font.BOLD,16));
+l4.setFont(new Font("Georgia",Font.BOLD,16));
+l5.setFont(new Font("Georgia",Font.BOLD,16));
+l6.setFont(new Font("Georgia",Font.BOLD,16));
+l7.setFont(new Font("Georgia",Font.BOLD,16));
+l8.setFont(new Font("Georgia",Font.BOLD,16));
+l9.setFont(new Font("Georgia",Font.BOLD,16));
+l10.setFont(new Font("Georgia",Font.BOLD,16));
 f1.setTitle("Cpu Frequency Stats");
+b1.setForeground(Color.WHITE);
 }
 
 public void setposn()
@@ -92,12 +95,7 @@ if(e.getSource() == b1)
 {
 	try{
 	cmd = "adb shell cat sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies";
-	System.out.println(cmd);
-	Runtime run = Runtime.getRuntime();
-	Process pr = run.exec(cmd);
-	pr.waitFor();
-	BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
-	line = buf.readLine();
+	line = sh.executor(cmd);
 		in = new Scanner(line).useDelimiter("[^0-9]+");
 		for(i=0 ; i<10 ; i++)
 		{
@@ -114,11 +112,7 @@ if(e.getSource() == b1)
 	{
 	cmd = "adb shell cat sys/devices/system/cpu/cpu0/cpufreq/stats/time_in_state | grep "+freq[i];
 	System.out.println(cmd);
-	Runtime run = Runtime.getRuntime();
-	Process pr = run.exec(cmd);
-	pr.waitFor();
-	BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
-	line = buf.readLine();
+	line = sh.executor(cmd);
 	inn = new Scanner(line).useDelimiter("[^0-9]+");
 	tis[i] = inn.nextInt();
 	tis[i] = inn.nextInt();

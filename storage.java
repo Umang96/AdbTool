@@ -12,9 +12,11 @@ JButton b1;
 JLabel head,l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11;
 String[] parts;
 String main;
+ShellHelper sh;
 
 storage()
 {
+sh = new ShellHelper(0);
 f1 = new JFrame();
 p1 = new JPanel();
 f1.add(p1);
@@ -36,20 +38,21 @@ l11 = new JLabel();
 l11.setOpaque(true);
 b1 = new JButton("Fetch/Refresh");
 b1.addActionListener(this);
-head.setFont(new Font("Times New Roman",Font.BOLD,32));
-l1.setFont(new Font("Times New Roman",Font.BOLD,17));
-l2.setFont(new Font("Times New Roman",Font.BOLD,17));
-l3.setFont(new Font("Times New Roman",Font.BOLD,17));
-l4.setFont(new Font("Times New Roman",Font.BOLD,17));
-l5.setFont(new Font("Times New Roman",Font.BOLD,17));
-l6.setFont(new Font("Times New Roman",Font.BOLD,17));
-l7.setFont(new Font("Times New Roman",Font.BOLD,17));
-l8.setFont(new Font("Times New Roman",Font.BOLD,17));
-l9.setFont(new Font("Times New Roman",Font.BOLD,17));
-l10.setFont(new Font("Times New Roman",Font.BOLD,17));
-l11.setFont(new Font("Times New Roman",Font.BOLD,17));
-b1.setFont(new Font("Times New Roman",Font.BOLD,16));
+head.setFont(new Font("Georgia",Font.BOLD,32));
+l1.setFont(new Font("Georgia",Font.BOLD,17));
+l2.setFont(new Font("Georgia",Font.BOLD,17));
+l3.setFont(new Font("Georgia",Font.BOLD,17));
+l4.setFont(new Font("Georgia",Font.BOLD,17));
+l5.setFont(new Font("Georgia",Font.BOLD,17));
+l6.setFont(new Font("Georgia",Font.BOLD,17));
+l7.setFont(new Font("Georgia",Font.BOLD,17));
+l8.setFont(new Font("Georgia",Font.BOLD,17));
+l9.setFont(new Font("Georgia",Font.BOLD,17));
+l10.setFont(new Font("Georgia",Font.BOLD,17));
+l11.setFont(new Font("Georgia",Font.BOLD,17));
+b1.setFont(new Font("Georgia",Font.BOLD,16));
 f1.setTitle("Storage Info Tool");
+b1.setForeground(Color.WHITE);
 }
 
 public void setposn()

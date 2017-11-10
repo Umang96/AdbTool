@@ -8,9 +8,15 @@ public class screenrec2 implements Runnable
 {
 Thread thread;
 long tim;
-screenrec2(long x)
+String resolution;
+String bitrate;
+ShellHelper sh;
+
+screenrec2(long x,String res,String bit)
 {
 tim=x;
+resolution=res;
+bitrate=bit;
 }
 public void start () {
         thread = new Thread (this);
@@ -18,14 +24,11 @@ public void start () {
     }
 public void run ()
 {
-Process pr;
 try{
 String st = Long.toString(tim);
-String cmd="adb shell screenrecord /sdcard/screenrec_"+st+".mp4";
+String cmd="adb shell screenrecord --bit-rate "+bitrate+" --size "+resolution+" /sdcard/screenrec_"+st+".mp4";
 System.out.println(cmd);
-Runtime run = Runtime.getRuntime();
-	      pr = run.exec(cmd);
-	      pr.waitFor();
+sh.executor(cmd);
 }
 catch(Exception e)
 {
